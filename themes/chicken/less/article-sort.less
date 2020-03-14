@@ -1,0 +1,78 @@
+.article-sort {
+    padding-top: 30px;
+    min-height: 650px;
+    font-size: 18px;
+
+    .article-sort-title {
+        position: relative;
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: 26px;
+    }
+
+    .article-sort-item {
+        position: relative;
+        padding: 10px 0 10px 20px;
+        border-left: 1px dashed @theme-color;
+    
+        .date {
+            font-size: 14px;
+            color: #888;
+        }
+    
+        .title {
+            transition: .3s;
+        }
+    
+        .title:hover {
+            color: @theme-color;
+        }
+    
+        &::before {
+            position: absolute;
+            left: -8px;
+            top: 40px;
+            border: 4px solid #666;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            content: "";
+            background-color: #fff;
+            box-shadow: 1px 1px 2px #333;
+            transition: .3s;
+        }
+    
+        &:hover::before {
+            border-color: @theme-color;
+        }
+    
+        &.year {
+            padding-top: 0;
+            font-size: 22px;
+            font-weight: bold;
+        
+            &::before {
+                left: -10px;
+                top: 10px;
+                border: 5px solid @theme-color;
+                width: 10px;
+                height: 10px;
+            }
+        }
+    
+        &.title {
+            font-size: 26px;
+            font-weight: bold;
+            color: @theme-color;
+            
+            &::before {
+                left: -10px;
+                top: 32px;
+                border: none;
+                width: 20px;
+                height: 20px;
+                background-color: @theme-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div id="write">
+    <div class="container">
+        <div class="post-info">
+            <ul class="tag-list">
+                <% for(let i = 0; i < page.tags.length; i++){ %>
+                    <a class="tag-list-item" href="<%= url_for(page.tags.data[i].path) %>"><%= page.tags.data[i].name %></a>
+                <% } %>
+            </ul>
+        </div>
+        <div class="post-content"><%- page.content %></div>
+    </div>
+</div>
+
+<div class="toc"></div>

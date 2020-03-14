@@ -1,0 +1,9 @@
+<header>
+    <div class="container">
+        <div class="site-title"><a href="/"><%= config.title %></a></div>
+        <nav>
+            <a class="nav-item <%- is_home() ? 'active' : '' %>" href="/">主页</a>
+            <a class="nav-item <%- is_archive() ? 'active' : '' %>" href="/archives">时光轴</a>
+        </nav>
+    </div>
+</header>

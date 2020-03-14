@@ -1,0 +1,270 @@
+#write {
+    padding-top: 120px;
+
+    .container {
+        position: relative;
+        margin: 20px auto 0;
+        min-height: 650px;
+        word-break: break-all;
+    
+        @media (max-width: 1000px) {
+            padding: 0 25px;
+        }
+    }
+}
+
+.post-content {
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 20px;
+        color: @text-color - 60;
+        pointer-events: none;
+        code:not(.hljs) {
+            font-family: '思源宋体', '微软雅黑', sans-serif;
+            color: @text-color - 60;
+        }
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        margin: -60px 0 20px 0; /* 为了调整 toc 的滚动位置 */
+        padding: 90px 0 5px 0; /* 为了调整 toc 的滚动位置 */
+        border-bottom: 2px dashed rgba(255, 81, 81, .8);
+        font-size: 30px;
+    }
+
+    h3 {
+        position: relative;
+        margin-top: -70px; /* 为了调整 toc 的滚动位置 */
+        padding-top: 90px; /* 为了调整 toc 的滚动位置 */
+        font-size: 26px;
+
+        &::before {
+            position: absolute;
+            top: 93px;
+            left: -20px;
+            color: @theme-color;
+            font-size: 22px;
+            font-weight: bold;
+            content: "#";
+        }
+    }
+
+    h4 {
+        position: relative;
+        font-size: 22px;
+    }
+
+    h5, h6 {
+        font-size: 16px;
+    }
+
+    p {
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    a:not(.headerlink) {
+        margin: 0 3px;
+        border-bottom: 1px dashed @theme-color;
+        font-weight: bold;
+        transition: .3s;
+
+        &:hover {
+            color: @theme-color;
+        }
+    }
+
+    strong {
+        background-color: @strong-color;
+
+        code {
+            text-shadow: 1px 1px 0 #fff;
+        }
+    }
+
+    em {
+        margin: 0 3px;
+    }
+
+    blockquote {
+        position: relative;
+        margin: 20px 0;
+        padding: 7px 20px;
+        border: 1px solid #eee;
+        border-left: 4px solid @theme-color;
+        color: #666;
+        background-color: #fcfcfc;
+        border-radius: 10px;
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            font-family: consolas;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            line-height: 15px;
+            color: #fff;
+            background-color: @theme-color;
+            transform: translateY(-50%);
+            content: "!";
+        }
+    }
+
+    code:not(.hljs) {
+        margin: 0 3px;
+        font-family: Consolas, Menlo, '思源黑体', '微软雅黑', Monospace;
+        color: @code-color;
+    }
+
+    abbr {
+        position: relative;
+        margin-right: 15px;
+        text-decoration: none;
+
+        &::after {
+            position: absolute;
+            top: -5px;
+            right: -15px;
+            font-family: "Font Awesome 5 Free";
+            font-size: 14px;
+            content: "\f059";
+            color: @theme-color;
+        }
+    }
+
+    ul {
+        margin: 15px 0;
+        padding-left: 20px;
+
+        & ul {
+            margin: 10px 0;
+        }
+    }
+
+    li {
+        margin: 3px 0;
+        list-style-type: disc;
+
+        & li {
+            list-style-type: circle;
+        }
+    }
+
+    img {
+        position: relative;
+        margin: 25px 0;
+        max-width: 100%;
+    }
+
+    .table-container {
+        margin: 15px auto;
+        overflow-x: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        min-width: 350px;
+
+        thead {
+            color: #fff;
+            background-color: @theme-color;
+            th {
+                padding: 8px 5px;
+                min-width: 20px;
+                text-align: left;
+                white-space: nowrap;
+            }
+        }
+
+        tbody {
+            tr:nth-child(2n) {
+                background-color: #f6f6f6;
+            }
+            td {
+                padding: 5px;
+                vertical-align: middle;
+                white-space: nowrap;
+                &:first-child {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    pre {
+        margin: 20px 0;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .hljs {
+            font-family: Consolas, Menlo, 'Helvetica Neue', '思源黑体', '微软雅黑', Monospace;
+            padding: 15px 25px;
+            line-height: 1.5;
+
+            @media (max-width: 1000px) {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    kbd {
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        margin: 2px;
+        padding: 2px 5px;
+        background-color: #f8f8f8;
+        box-shadow: 0 1px 2px #666;
+        font-family: Consolas, Menlo, '思源黑体', '微软雅黑', Monospace;
+    }
+
+    // 去除 MathJax 公式的轮廓
+    :focus {
+        outline: none;
+    }
+
+    // 设置 katex 公式的样式
+    .katex { 
+        margin: 0 3px;
+        font: normal 19px KaTeX_Main,"Times New Roman","思源黑体","微软雅黑",serif;
+        color: @code-color;
+    }
+}
+
+.toc {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    padding: 30px 20px;
+    width: 300px;
+    height: 100%;
+    font-size: 14px;
+    overflow: auto;
+
+    @media (max-width: 1750px) {
+        display: none;
+    }
+
+    .toc-link {
+        display: block;
+        padding: 2px 0 2px 10px;
+        transition: .2s;
+    }
+
+    .is-active-link {
+        color: #fff;
+        background-color: @theme-color;
+    }
+
+    .toc-list .toc-list {
+        padding-left: 20px!important;
+    }
+}

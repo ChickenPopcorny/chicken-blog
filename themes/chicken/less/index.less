@@ -1,0 +1,159 @@
+main {
+    padding-top: 70px;
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+
+        .post-list {
+            flex-grow: 1;
+            max-width: 700px;
+        }
+
+        .post-list-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #d7d7d7;
+
+            .post-title {
+                font-size: 22px;
+                a:hover { border-bottom: 2px solid @theme-color; }
+            }
+
+            .post-info {
+                padding-top: 5px;
+                font-size: 14px;
+                color: #888;
+            }
+
+            .post-content {
+                padding: 30px 0;
+            }
+
+            .read-more {
+                color: @theme-color;
+            }
+            .read-more:hover {
+                color: @theme-color - 20;
+            }
+        }
+
+        aside {
+            width: 250px;
+    
+            .about-card, .category-card, .tag-card {
+                box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+    
+            .about-card {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 15px;
+                height: 100px;
+    
+                .info {
+                    width: 130px;
+                    .author {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    .description {
+                        font-size: 14px;
+                        color: #888;
+                    }
+                }
+    
+                .avatar {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    overflow: hidden;
+    
+                    img {
+                        margin-left: auto;
+                        height: 100%;
+                    }
+                }
+            }
+    
+            .card-title {
+                border-bottom: 2px solid @theme-color + 100;
+                padding: 10px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+    
+            .category-card {
+                margin-top: 20px;
+    
+                .category-list {
+                    display: flex;
+                    flex-direction: column;
+    
+                    .category-list-item {
+                        position: relative;
+                        border-bottom: 1px solid #f0f0f0;
+    
+                        .category-list-link {
+                            display: block;
+                            padding: 10px;
+                            transition: .5s;
+                        }
+    
+                        .category-list-link:hover {
+                            background-color: #f7f7f7;
+                        }
+    
+                        .category-list-count {
+                            position: absolute;
+                            top: 10px;
+                            right: 15px;
+                            width: 25px;
+                            height: 25px;
+                            font-family: "思源黑体", '微软雅黑', sans-serif;
+                            font-weight: bold;
+                            font-size: 12px;
+                            text-align: center;
+                            line-height: 25px;
+                            color: #fff;
+                            background-color: @theme-color;
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+    
+                        .category-list-child .category-list-link { // 子分类缩进
+                            padding-left: 30px;
+                        }
+    
+                        .category-list-child .category-list-child .category-list-link { // 子子分类缩进
+                            padding-left: 50px;
+                        }
+    
+                        .category-list-child .category-list-item {  // 子分类不显示边框
+                            border-bottom: none;
+                        }
+    
+                        .category-list-child .category-list-count {  // 子分类不显示数量
+                            display: none;
+                        }
+                    }
+    
+                    .category-list-item:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+    
+            .tag-card {
+                margin-top: 20px;
+            }
+
+            @media (max-width: 1200px) {
+                display: none;
+            }
+        }
+    }
+}

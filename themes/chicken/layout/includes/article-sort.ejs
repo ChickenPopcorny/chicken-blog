@@ -1,0 +1,32 @@
+<div class="article-sort">
+    <div class="container">
+        <h1 class="article-sort-title">
+            <%= is_tag() ? page.tag : '' %>
+            <%= is_archive() ? '时光轴' : '' %>
+            <%= is_category() ? page.category : '' %>
+        </h1>
+        <div class="article-sort-item year"><%- page.posts.data[0].date.year() %></div>
+        <% 
+            let year = page.posts.data[0].date.year()
+            for (let i = 0; i < page.posts.data.length; i++) {
+                var thisYear = page.posts.data[i].date.year()
+                if (thisYear != year) { 
+        %>
+
+        <div class="article-sort-item year"><%- page.posts.data[i].date.year() %></div>
+
+        <%
+                    year = thisYear
+                }
+        %>
+
+        <div class="article-sort-item">
+            <p class="date"><%- page.posts.data[i].date.format('YYYY年MM月DD日') %></p>
+            <a class="title" href="<%= url_for(page.posts.data[i].path) %>" target="_blank"></span><%- page.posts.data[i].title %></a>
+        </div>
+
+        <% } %>
+        
+    </div>
+    <div class="paginator"><%- paginator({ prev_text: '上一页', next_text: '下一页' }) %></div>
+</div>
